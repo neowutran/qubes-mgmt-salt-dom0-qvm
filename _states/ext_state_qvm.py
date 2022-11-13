@@ -364,7 +364,7 @@ def vm(name, *varargs, **kwargs):
         Separate the action from action value.
         '''
         action_value = 'fail'
-        if isinstance(action, collections.Mapping):
+        if isinstance(action, collections.abc.Mapping):
             action, action_value = list(action.items())[0]
         return action, action_value
 
@@ -417,7 +417,7 @@ def vm(name, *varargs, **kwargs):
         varargs = []
         keywords = _OrderedDict()
         for option in options:
-            if isinstance(option, collections.Mapping):
+            if isinstance(option, collections.abc.Mapping):
                 keywords.update(option)
             else:
                 varargs.append(option)
